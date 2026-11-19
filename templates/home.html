@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}Home | Shopping Mode Predictor{% endblock %}
+
+{% block content %}
+    <h1>Shopping Mode Predictor</h1>
+
+    <h2>Project Overview</h2>
+    <p>
+        This application uses a machine-learning model to predict a customer's
+        preferred shopping mode based on shopping behavior details.
+    </p>
+    <p>
+        Visit the prediction page, enter the requested information, and submit
+        the form to receive a prediction.
+    </p>
+    <p>
+        <strong>Note:</strong> This is a project prototype and its predictions
+        should not be considered guaranteed outcomes.
+    </p>
+
+    <a class="button" href="{{ url_for('predict') }}">
+        Go to Prediction
+    </a>
+{% endblock %}

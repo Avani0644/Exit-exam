@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block title %}Predict | Shopping Mode Predictor{% endblock %}
+
+{% block content %}
+    <h1>Predict Preferred Shopping Mode</h1>
+    <p>Enter the shopping behavior details below.</p>
+
+    <form method="post">
+        {% for feature in numeric_features %}
+            <label for="{{ feature }}">{{ feature }}</label>
+            <input
+                type="number"
+                step="any"
+                id="{{ feature }}"
+                name="{{ feature }}"
+                required
+            >
+        {% endfor %}
+
+        {% for feature in categorical_features %}
+            <label for="{{ feature }}">{{ feature }}</label>
+            <select id="{{ feature }}" name="{{ feature }}" required>
+                <option value="">Select an option</option>
+                {% for option in categorical_options[feature] %}
+                    <option value="{{ option }}">{{ option }}</option>
+                {% endfor %}
+            </select>
+        {% endfor %}
+
+        <button type="submit">Predict Shopping Mode</button>
+    </form>
+
+    {% if error %}
+        <div class="error">{{ error }}</div>
+    {% endif %}
+
+    {% if prediction is not none %}
+        <div class="result">
+            <h2>Prediction</h2>
+            <p>
+                Preferred shopping mode:
+                <strong>{{ prediction }}</strong>
+            </p>
+        </div>
+    {% endif %}
+{% endblock %}

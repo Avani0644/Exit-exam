@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}Shopping Mode Predictor{% endblock %}</title>
+    <style>
+        body {
+            max-width: 850px;
+            margin: 30px auto;
+            padding: 20px;
+            background: #f5f7fb;
+            color: #222;
+            font-family: Arial, sans-serif;
+        }
+
+        nav {
+            margin-bottom: 25px;
+        }
+
+        nav a {
+            margin-right: 20px;
+            color: #174ea6;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        main {
+            padding: 28px;
+            border-radius: 10px;
+            background: white;
+            box-shadow: 0 2px 10px #00000012;
+        }
+
+        label {
+            display: block;
+            margin-top: 16px;
+            font-weight: bold;
+        }
+
+        input, select {
+            width: 100%;
+            box-sizing: border-box;
+            margin-top: 6px;
+            padding: 10px;
+        }
+
+        button, .button {
+            display: inline-block;
+            margin-top: 22px;
+            padding: 11px 18px;
+            border: none;
+            border-radius: 5px;
+            background: #174ea6;
+            color: white;
+            font-weight: bold;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .result {
+            margin-top: 22px;
+            padding: 14px;
+            border-radius: 5px;
+            background: #e8f5e9;
+        }
+
+        .error {
+            margin-top: 22px;
+            padding: 14px;
+            border-radius: 5px;
+            background: #ffebee;
+            color: #a40000;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="{{ url_for('home') }}">Home</a>
+        <a href="{{ url_for('predict') }}">Predict</a>
+    </nav>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+</body>
+</html>
